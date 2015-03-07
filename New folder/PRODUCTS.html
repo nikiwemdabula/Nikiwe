@@ -1,0 +1,291 @@
+<!-- experiments with table & button-input  vegaseat  2/13/02 -->
+<!-- table, border, cellpadding, cellspacing, input, onClick -->
+<!-- uses eval() to do the final calculation -->
+<!-- note: eval() traps divide by zero error -->
+
+
+<HTML>
+
+
+</HEAD>
+ 
+    
+  <title>Resources</title>
+   
+</head>
+<body>
+<body background= "http://www.earthtimes.org/newsimage/oceans-struggling-soak-co2_107.jpg">
+<center>
+<<spem><a href="HOME.html">HOME</a></spem>
+<spem><a href="CONTACTS.html">CONTACTS</a></spem>
+<spem><a href="PRODUCTS.html">PRODUCTS</a></spem>
+<spem><a href="About Us.html">About Us</a></spem>
+</center>
+<H1><U>RESOURCES</U></H1>
+</ br>
+<P><B>CALCULATOR</B></P>
+<hr>
+<form name="calculator">
+
+<!-- form the display to match the keypad -->
+<table border="4" cellpadding="1" bordercolor="#FFFFFF" bgcolor="#73B27B" cellspacing="2" width="222">
+<tr>
+<td>
+<input type="text" size="25" length="25" value="" name="ans" style="background:beige;color:black;">
+</td>
+</tr>
+</table>
+
+<!-- form the keypad with buttons in a table -->
+<table border="4" cellpadding="2" bordercolor="#FFFFFF" cellspacing="2" width="150" bgcolor="#73B27B">
+<tr>
+<td align="center">
+<input type="button" value="  7  " name="seven" onClick="document.calculator.ans.value+='7'">
+</td>
+<td align="center">
+<input type="button" value="  8  " name="eight" onClick="document.calculator.ans.value+='8'">
+</td>
+<td align="center">
+<input type="button" value="  9  " name="nine" onClick="document.calculator.ans.value+='9'">
+</td>
+<td align="center">
+<input type="button" value="  /  " name="divide" onClick="document.calculator.ans.value+='/'">
+</td>
+</tr>
+<tr>
+<td align="center">
+<input type="button" value="  4  " name="four" onClick="document.calculator.ans.value+='4'">
+</td>
+<td align="center">
+<input type="button" value="  5  " name="five" onClick="document.calculator.ans.value+='5'">
+</td>
+<td align="center">
+<input type="button" value="  6  " name="six" onClick="document.calculator.ans.value+='6'">
+</td>
+<td align="center">
+<input type="button" value="  *  " name="multiply" onClick="document.calculator.ans.value+='*'">
+</td>
+</tr>
+<tr>
+<td align="center">
+<input type="button" value="  1  " name="one" onClick="document.calculator.ans.value+='1'">
+</td>
+<td align="center">
+<input type="button" value="  2  " name="two" onClick="document.calculator.ans.value+='2'">
+</td>
+<td align="center">
+<input type="button" value="  3  " name="three" onClick="document.calculator.ans.value+='3'">
+</td>
+<td align="center">
+<input type="button" value="  -  " name="subtract" onClick="document.calculator.ans.value+='-'">
+</td>
+</tr>
+<tr>
+<td align="center">
+<input type="button" value="  C  " name="clear" onClick="document.calculator.ans.value=''">
+</td>
+<td align="center">
+<input type="button" value="  0  " name="zero" onClick="document.calculator.ans.value+='0'">
+</td>
+<td align="center">
+<input type="button" value="  =  " name="equal" 
+  onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+</td>
+<td align="center">
+<input type="button" value="  +  " name="add" onClick="document.calculator.ans.value+='+'">
+</td>
+</tr>
+</table>
+
+</form>
+            <div id="powerd"><a href="http://www.transfermate.com/" target="_blank" id="tm_add146" class="tm_add146">
+			</a></div><script src="http://www.transfermate.com/en/exchange_rates_api.asp" type="text/javascript">
+			</script>
+			<noscript><br/>
+			<span style="color: red;">Please enable your javascript.</span></noscript>        
+
+            
+
+
+         
+
+
+</body>
+
+</body>
+       <html>
+    <head>
+	<p><b><u>TIMER<u></b></p>
+	<hr>
+        <script>
+		
+            function startTime()
+            {
+                var today = new Date();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                // Add a zero in front of numbers<10
+                m = checkTime(m);
+                s = checkTime(s);
+                document.getElementById('txt').innerHTML =
+                    today.getDate() +
+                    "-" +
+                    (today.getMonth()+1)+"-" +
+                    today.getFullYear() +
+                    " "+h+":"+m+":"+s;
+                t = setTimeout(function(){startTime()},500);
+            }
+
+            function checkTime(i)
+            {
+                if (i<10)
+                {
+                    i = "0" + i;
+                }
+                return i;
+            }
+        </script>
+    </head>
+
+    <body onload="startTime()">
+        <div id="txt"></div>
+    </body>
+</html>
+<html>
+<head>
+<title></title>
+<style>
+.Question {background-color:orange;}
+</style>
+<script>
+correctAnswers=[0,1,2,1];
+var AnsweredCorrectly=0;
+function start(){
+document.getElementById('quizstart').style.display="none";
+document.getElementById('question0').style.display="block";
+}
+function toggle(a,b){
+AnsweredCorrectly+=(document.getElementsByName('ans'+a)[correctAnswers[a]].checked?1:0);
+document.getElementById('question'+a).style.display="none";
+document.getElementById('question'+b).style.display="block";
+}
+function end(a){
+AnsweredCorrectly+=(document.getElementsByName('ans'+a)[correctAnswers[a]].checked?1:0);
+document.getElementById('question'+a).style.display="none";
+document.getElementById('summary').style.display="block";
+document.getElementById('result').innerHTML=AnsweredCorrectly;
+}
+</script>
+
+</head>
+<body>
+<P><B><u>QUIZ</u></B></P>
+<hr>
+<script type="text/javascript">
+
+
+window.onload = function(){
+
+	document.getElementById("answerButton").onclick = function(){
+	
+		//create form object
+		var quiz = document.quiz;
+		
+		//code for question 1
+		var q1 = false;
+		for (var i=0; i<quiz.q1.length; i++){
+			if (quiz.q1[i].checked) {
+				q1 = quiz.q1[i].value;
+				break;
+			}
+		}
+		var div = document.getElementById("q1");
+		switch (q1){
+			case "elephant":
+				div.innerHTML = "You're Right!  The elephant is the largest land mammal on earth. The largest elephant ever recorded was shot in Angola in 1956. This male weighed about 11,000 kg, with a shoulder height of 3.96 metres, a metre taller than the average male African elephant.";
+				div.className = "right";
+			break;
+			case "whale":
+				div.innerHTML = "The whale is the largest mammal on the earth but we were asking for the largest LAND mammal.";
+				div.className = "wrong";
+			break;
+			case "brontosaurus":
+				div.innerHTML = "The Brontosaurus is one of the largest dinosaurs that roamed the earth however a dinosaur is not a mammal.";
+				div.className = "wrong";
+			break;
+			case "shrew":
+				div.innerHTML = "The question was for the LARGEST land mammal not the smallest!"
+				div.className = "wrong";
+			break;
+			default:
+				div.innerHTML = "You did not answer this question."
+				div.className = "wrong";
+		}
+		
+		//code for question 2
+		var q2 = new Array();
+		var div = document.getElementById("q2");
+		var i = 0;
+		for (var i=0; i<quiz.q2.length; i++) if (quiz.q2[i].checked) q2.push(quiz.q2[i].value);
+		
+		if (q2.length==2) {
+				if (quiz.q2[1].checked && quiz.q2[2].checked) {
+					div.innerHTML = "You're Right!  Combining the two secondary colours of purple and green makes the primary colour of blue!"
+					div.className = "right";
+				} else {
+					div.innerHTML = "Sorry, those colours mixed together do not make blue."
+					div.className = "wrong";
+				}
+		} else if (q2.length==0) {
+			div.innerHTML = "You did not answer this question."
+			div.className = "wrong";
+		} else if (q2.length==1) {
+			div.innerHTML = "One colour alone cannot make another colour."
+			div.className = "wrong";
+		} else if (q2.length>2) {
+			div.innerHTML = "You have selected too many colours!"
+			div.className = "wrong";
+		}
+	};
+}
+
+
+</script>
+
+<style type="text/css">
+li{margin:30px 0;}
+.wrong{color:#FF0000;}
+.right{color:#00FF00;}
+</style>
+
+</head>
+
+<body>
+
+<form name="quiz">
+	<ol>
+		<li>
+			The largest mammal on land is?<br />
+			<input type="radio" name="q1" value="shrew"/>Etruscan Shrew<br />
+			<input type="radio" name="q1" value="elephant"/>Elephant<br />
+			<input type="radio" name="q1" value="whale"/>Whale<br />
+			<input type="radio" name="q1" value="brontosaurus"/>Brontosaurus
+			<div id="q1"></div>
+		</li>
+		<li>
+			What two colours when mixed together make blue?<br />
+			<input type="checkbox" name="q2" value="red"/>red<br />
+			<input type="checkbox" name="q2" value="purple"/>purple<br />
+			<input type="checkbox" name="q2" value="green"/>green<br />
+			<input type="checkbox" name="q2" value="orange"/>orange<br />
+			<div id="q2"></div>
+		</li>
+	</ol>
+	<input type="button" id="answerButton" value="answers"/>
+<form>
+
+
+
+        </body>
+</html>
